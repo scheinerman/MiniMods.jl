@@ -1,2 +1,2 @@
-# MiniMods.jl
+# MiniMods
 Extension for the `Mods` package for very small moduli
