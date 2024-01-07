@@ -24,6 +24,14 @@ MiniMod{N}(q::Rational{T}) where {N,T} = MiniMod{N}(numerator(q))/MiniMod{N}(den
 modulus(::MiniMod{N}) where {N} = N
 conj(x::MiniMod{N}) where {N} = x
 
+# conversions
+Mod(a::MiniMod{N}) where N = Mod{N}(value(a))
+Mod{N}(a::MiniMod{N}) where N = Mod{N}(value(a))
+
+MiniMod(a::Mod{N}) where N = MiniMod{N}(value(a))
+MiniMod{N}(a::Mod{N}) where N = MiniMod{N}(value(a))
+
+
 rand(::Type{MiniMod{N}}, dims::Integer...) where {N} = MiniMod{N}.(rand(Int, dims...))
 
 include("mini_promotion.jl")
