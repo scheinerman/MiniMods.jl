@@ -48,5 +48,47 @@ julia> sizeof(b)
 8
 ```
 
+## Other packages
+
+We have tested using `MiniMods` with `LinearAlgebra`, `LinearAlgebraX`, and `SimplePolynomials`. It appears to work well in those settings.
+
+```
+julia> using LinearAlgebra, LinearAlgebraX
+
+julia> A = rand(MiniMod{11},5,5)
+5×5 Matrix{MiniMod{11}}:
+ MiniMod{11}(4)  MiniMod{11}(2)  MiniMod{11}(0)  MiniMod{11}(6)  MiniMod{11}(1)
+ MiniMod{11}(4)  MiniMod{11}(5)  MiniMod{11}(1)  MiniMod{11}(3)  MiniMod{11}(6)
+ MiniMod{11}(9)  MiniMod{11}(7)  MiniMod{11}(2)  MiniMod{11}(9)  MiniMod{11}(9)
+ MiniMod{11}(1)  MiniMod{11}(9)  MiniMod{11}(7)  MiniMod{11}(0)  MiniMod{11}(5)
+ MiniMod{11}(5)  MiniMod{11}(7)  MiniMod{11}(5)  MiniMod{11}(2)  MiniMod{11}(8)
+
+julia> det(A)
+MiniMod{11}(7)
+
+julia> detx(A)
+MiniMod{11}(7)
+
+julia> rankx(A)
+5
+
+julia> sizeof(A)   # 5x5 matrix of MiniMods using 25 bytes
+25
+
+julia> sizeof(Mod.(A)) # but same matrix of Mods using 8 times as much
+200
+
+julia> using SimplePolynomials
+
+julia> x = getx()
+x
+
+julia> p = one(MiniMod{2}) + x
+MiniMod{2}(1) + MiniMod{2}(1)*x
+
+julia> p^8
+MiniMod{2}(1) + MiniMod{2}(1)*x^8
+```
+
 
 

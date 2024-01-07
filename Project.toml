@@ -1,7 +1,18 @@
 name = "MiniMods"
 uuid = "1a8b3848-3eb3-4d15-96a5-7a8255f48516"
 authors = ["Ed Scheinerman <ers@jhu.edu>"]
-version = "0.0.2"
+version = "0.1.0"
 
 [deps]
 Mods = "7475f97c-0381-53b1-977b-4c60186c8d62"
+
+
+[compat]
+julia = "1"
+Mods = "2"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
