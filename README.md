@@ -134,5 +134,5 @@ and change `Int8` to another integer type. For example, use `Int16` to expand
 the range of moduli to 32767.
 
 > **WARNING**: Unsigned integers do not work. Do not try to set `SmallInt` to `UInt8` or other unsigned types. This will result in an error message after
-`using MiniMods` and the module will not compile
+`using MiniMods` and the module will not compile.
 
