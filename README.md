@@ -119,19 +119,20 @@ julia> @btime inv(B);
 ```
 
 
-## Slightly larger moduli
+## Larger moduli
 
 We envision that users of this module will be primarily using very small 
 moduli, so the upper bound of 127 won't (we hope) be a problem. However,
 users may elect to modify the code to work with larger integers (but smaller
 than `Int`). 
 
-In the source file `MiniMods.jl` find the line:
+In the source file `MiniMods.jl` find the line
 ```julia
 const SmallInt = Int8
 ```
-and change `Int8` to another integer type. For example, use `UInt8` to expand
-the range of moduli to 255; this maintains the size of a `MiniMod` to being a
-single byte. (However, printing of values uses hexadecimal notation.) For yet
-larger moduli, `Int8` can be changed to `Int16`.
+and change `Int8` to another integer type. For example, use `Int16` to expand
+the range of moduli to 32767.
+
+> **WARNING**: Unsigned integers do not work. Do not try to set `SmallInt` to `UInt8` or other unsigned types. This will result in an error message after
+`using MiniMods` and the module will not compile
 
