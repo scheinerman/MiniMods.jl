@@ -1,5 +1,5 @@
 # MiniMods
-Extension for the `Mods` package for very small moduli.
+Extension of the [Mods](https://github.com/scheinerman/Mods.jl)  package for very small moduli.  
 
 ## Everything is the same, just smaller
 
@@ -32,6 +32,8 @@ While it is not clear why one would like to mix expressions with both `Mod` and
 space efficient type. 
 
 ```
+julia> using Mods 
+
 julia> a = MiniMod{10}(6);
 
 julia> b = Mod{10}(5);
