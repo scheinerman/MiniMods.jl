@@ -5,15 +5,16 @@ import Mods: AbstractMod, modulus, value, is_invertible, Mod
 import Base: (==), (+), (-), (*), (inv), (/), (//), (^)
 import Base: hash, iszero, isone, mod, abs, conj, rand
 
-
-
 export MiniMod, modulus, value, is_invertible
 
+
+const SmallInt = Int8
+
 struct MiniMod{N} <: AbstractMod
-    val::Int8
+    val::SmallInt
     function MiniMod{N}(x::T) where {N,T<:Integer}
         @assert N isa Integer && N > 1 "Modulus must be an integer greater than 1"
-        @assert N <= typemax(Int8) "modulus is too large"
+        @assert N <= typemax(SmallInt) "modulus is too large"
         new{Int(N)}(mod(x, N))
     end
 end

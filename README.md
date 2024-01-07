@@ -90,5 +90,48 @@ julia> p^8
 MiniMod{2}(1) + MiniMod{2}(1)*x^8
 ```
 
+## `MiniMod` numbers are smaller *and* faster than `Mod` numbers
 
+```
+julia> using MiniMods, Mods, LinearAlgebra, BenchmarkTools
+
+julia> m = 17;
+
+julia> n = 100;
+
+julia> A = rand(Mod{m}, n, n);
+
+julia> B = MiniMod.(A);
+
+julia> @btime det(A)
+  34.608 ms (1970121 allocations: 37.65 MiB)
+Mod{17}(4)
+
+julia> @btime det(B)
+  1.869 ms (3 allocations: 10.83 KiB)
+MiniMod{17}(4)
+
+julia> @btime inv(A);
+  263.101 ms (7970125 allocations: 152.25 MiB)
+
+julia> @btime inv(B);
+  16.046 ms (5 allocations: 31.56 KiB)
+```
+
+
+## Slightly larger moduli
+
+We envision that users of this module will be primarily using very small 
+moduli, so the upper bound of 127 won't (we hope) be a problem. However,
+users may elect to modify the code to work with larger integers (but smaller
+than `Int`). 
+
+In the source file `MiniMods.jl` find the line:
+```julia
+const SmallInt = Int8
+```
+and change `Int8` to another integer type. For example, use `UInt8` to expand
+the range of moduli to 255; this maintains the size of a `MiniMod` to being a
+single byte. (However, printing of values uses hexadecimal notation.) For yet
+larger moduli, `Int8` can be changed to `Int16`.
 
