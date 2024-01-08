@@ -1,5 +1,5 @@
-(+)(a::MiniMod{N}, b::MiniMod{N}) where {N} = MiniMod{N}(widen(value(a) + widen(value(b))))
-(-)(a::MiniMod{N}) where {N} = MiniMod{N}(-value(a))
+(+)(a::MiniMod{N}, b::MiniMod{N}) where {N} = MiniMod{N}(widen(value(a)) + widen(value(b)))
+(-)(a::MiniMod{N}) where {N} = MiniMod{N}(N-value(a))
 (*)(a::MiniMod{N}, b::MiniMod{N}) where {N} = MiniMod{N}(widen(value(a)) * widen(value(b)))
 
 function is_invertible(a::MiniMod{N})::Bool where {N}
