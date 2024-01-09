@@ -5,7 +5,7 @@ Extension of the [Mods](https://github.com/scheinerman/Mods.jl)  package for ver
 
 The `MiniMods` module defines the `MiniMod` type that behaves
 exactly the same as `Mod` (from the `Mods` module) except that 
-moduli are restricted to lie between 2 and 127. In this way, a
+moduli are restricted to lie between 2 and 255. In this way, a
 `MiniMod` only takes up one byte of memory, whereas a `Mod` uses 
 eight. 
 
