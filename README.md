@@ -1,6 +1,10 @@
 # MiniMods
 Extension of the [Mods](https://github.com/scheinerman/Mods.jl)  package for very small moduli.  
 
+>  **NOTICE**: This module is under active development with various design changes 
+being considered. We're looking for both space and speed efficiency. It is also possible
+that we will fold the lessons learned here into `Mods` and abandon this project. 
+
 ## Everything is the same, just smaller
 
 The `MiniMods` module defines the `MiniMod` type that behaves
