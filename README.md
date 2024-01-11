@@ -1,9 +1,6 @@
 # MiniMods
 Extension of the [Mods](https://github.com/scheinerman/Mods.jl)  package for very small moduli.  
 
->  **NOTICE**: This module is under active development with various design changes 
-being considered. We're looking for both space and speed efficiency. It is also possible
-that we will fold the lessons learned here into `Mods` and abandon this project. 
 
 ## Everything is the same, just smaller
 
@@ -94,49 +91,45 @@ julia> p^8
 MiniMod{2}(1) + MiniMod{2}(1)*x^8
 ```
 
-## `MiniMod` numbers are smaller *and* faster than `Mod` numbers
+## `MiniMod` numbers are smaller but not faster than `Mod` numbers
 
 ```
 julia> using MiniMods, Mods, LinearAlgebra, BenchmarkTools
 
-julia> m = 17;
+julia> m = 251; d = 500;
 
-julia> n = 100;
-
-julia> A = rand(Mod{m}, n, n);
+julia> A = rand(Mod{m}, d, d);
 
 julia> B = MiniMod.(A);
 
+julia> @btime A*A;
+  601.262 ms (6 allocations: 1.94 MiB)
+
+julia> @btime B*B;
+  682.364 ms (6 allocations: 275.75 KiB)
+
 julia> @btime det(A)
-  34.608 ms (1970121 allocations: 37.65 MiB)
-Mod{17}(4)
+  150.941 ms (4 allocations: 1.91 MiB)
+Mod{251}(217)
 
 julia> @btime det(B)
-  1.869 ms (3 allocations: 10.83 KiB)
-MiniMod{17}(4)
-
-julia> @btime inv(A);
-  263.101 ms (7970125 allocations: 152.25 MiB)
-
-julia> @btime inv(B);
-  16.046 ms (5 allocations: 31.56 KiB)
+  176.047 ms (4 allocations: 248.31 KiB)
+MiniMod{251}(217)
 ```
 
 
 ## Larger moduli
 
 We envision that users of this module will be primarily using very small 
-moduli, so the upper bound of 127 won't (we hope) be a problem. However,
+moduli, so the upper bound of 255 won't (we hope) be a problem. However,
 users may elect to modify the code to work with larger integers (but smaller
 than `Int`). 
 
 In the source file `MiniMods.jl` find the line
 ```julia
-const SmallInt = Int8
+const SmallInt = UInt8
 ```
-and change `Int8` to another integer type. For example, use `Int16` to expand
-the range of moduli to 32767.
+and change `UInt8` to another integer type. For example, use `UInt16` to expand
+the range of moduli to 65535.
 
-> **WARNING**: Unsigned integers do not work. Do not try to set `SmallInt` to `UInt8` or other unsigned types. This will result in an error message after
-`using MiniMods` and the module will not compile.
 
