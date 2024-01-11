@@ -13,14 +13,6 @@ export MiniMod, modulus, value, is_invertible
 # use Mods instead.
 
 const SmallInt = UInt8
-
-# Check that SmallInt is set to something legit
-# function __init__()
-#     if supertype(SmallInt) != Signed
-#         error("This module may not have SmallInt set to $SmallInt")
-#     end
-# end
-
 struct MiniMod{N} <: AbstractMod
     val::SmallInt
     function MiniMod{N}(x::T) where {N,T<:Integer}

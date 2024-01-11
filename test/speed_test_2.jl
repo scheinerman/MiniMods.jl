@@ -25,6 +25,16 @@ nothing
 # A * A == B * B = true
 # A * A == (C * C) .% m = true
 
+## RESULTS with widen() & UInt8 but no @assert check 
+# julia> include("test/speed_test_2.jl")
+# [ Info: Testing matrix multiplication (Mod, MiniMod, Integer)
+#   21.956 s (6 allocations: 7.66 MiB)
+#   5.462 s (6 allocations: 1008.19 KiB)
+#   337.063 ms (9 allocations: 15.29 MiB)
+# A * A == B * B = true
+# A * A == (C * C) .% m = true
+
+
 ## RESULTS without widen() and UInt8
 # [ Info: Testing matrix multiplication (Mod, MiniMod, Integer)
 #   21.850 s (6 allocations: 7.66 MiB)

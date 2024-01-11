@@ -35,6 +35,19 @@ nothing
 # inv(B) == invx(B) = true
 
 
+## RESULTS with widen() & UInt8 but no @assert check 
+# [ Info: Determinant tests
+#   1.104 s (4 allocations: 1.91 MiB)
+#   99.260 ms (128640 allocations: 89.81 MiB)
+# detx(A) == det(A) = true
+# det(A) == det(B) = true
+# [ Info: Inverse tests
+#   5.733 s (8 allocations: 5.73 MiB)
+#   524.594 ms (254553 allocations: 262.71 MiB)
+# inv(A) == inv(B) = true
+# inv(B) == invx(B) = true
+
+
 ## RESULTS with no widen() and UInt8
 # [ Info: Determinant tests
 #   1.196 s (4 allocations: 1.91 MiB)
