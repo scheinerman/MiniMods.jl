@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>MiniMods · MiniMods</title><meta name="title" content="MiniMods · MiniMods"/><meta property="og:title" content="MiniMods · MiniMods"/><meta property="twitter:title" content="MiniMods · MiniMods"/><meta name="description" content="Documentation for MiniMods."/><meta property="og:description" content="Documentation for MiniMods."/><meta property="twitter:description" content="Documentation for MiniMods."/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>MiniMods</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>MiniMods</a><ul class="internal"><li><a class="tocitem" href="#Everything-is-the-same,-just-smaller"><span>Everything is the same, just smaller</span></a></li><li><a class="tocitem" href="#Full-interoperability-with-Mods"><span>Full interoperability with <code>Mods</code></span></a></li><li><a class="tocitem" href="#Other-packages"><span>Other packages</span></a></li><li><a class="tocitem" href="#MiniMod-numbers-are-smaller-but-not-faster-than-Mod-numbers"><span><code>MiniMod</code> numbers are smaller but not faster than <code>Mod</code> numbers</span></a></li><li><a class="tocitem" href="#Larger-moduli"><span>Larger moduli</span></a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>MiniMods</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>MiniMods</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/scheinerman/MiniMods.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/scheinerman/MiniMods.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="MiniMods"><a class="docs-heading-anchor" href="#MiniMods">MiniMods</a><a id="MiniMods-1"></a><a class="docs-heading-anchor-permalink" href="#MiniMods" title="Permalink"></a></h1><p>Extension of the <a href="https://github.com/scheinerman/Mods.jl">Mods</a>  package for very small moduli.  </p><h2 id="Everything-is-the-same,-just-smaller"><a class="docs-heading-anchor" href="#Everything-is-the-same,-just-smaller">Everything is the same, just smaller</a><a id="Everything-is-the-same,-just-smaller-1"></a><a class="docs-heading-anchor-permalink" href="#Everything-is-the-same,-just-smaller" title="Permalink"></a></h2><p>The <code>MiniMods</code> module defines the <code>MiniMod</code> type that behaves exactly the same as <code>Mod</code> (from the <code>Mods</code> module) except that  moduli are restricted to lie between 2 and 255. In this way, a <code>MiniMod</code> only takes up one byte of memory, whereas a <code>Mod</code> uses  eight. </p><pre><code class="nohighlight hljs">julia&gt; using MiniMods
+
+julia&gt; a = MiniMod{17}(-2)
+MiniMod{17}(15)
+
+julia&gt; inv(a)
+MiniMod{17}(8)
+
+julia&gt; 2a-5
+MiniMod{17}(8)
+
+julia&gt; b = MiniMod{1000}(-1)
+ERROR: AssertionError: modulus is too large</code></pre><h2 id="Full-interoperability-with-Mods"><a class="docs-heading-anchor" href="#Full-interoperability-with-Mods">Full interoperability with <code>Mods</code></a><a id="Full-interoperability-with-Mods-1"></a><a class="docs-heading-anchor-permalink" href="#Full-interoperability-with-Mods" title="Permalink"></a></h2><p>While it is not clear why one would like to mix expressions with both <code>Mod</code> and  <code>MiniMod</code> types, this is permitted so long as the moduli of the numbers are the same. The result of such a mixed expression is <code>MiniMod</code> because this is the more  space efficient type. </p><pre><code class="nohighlight hljs">julia&gt; using Mods 
+
+julia&gt; a = MiniMod{10}(6);
+
+julia&gt; b = Mod{10}(5);
+
+julia&gt; a+b
+MiniMod{10}(1)
+
+julia&gt; sizeof(a)
+1
+
+julia&gt; sizeof(b)
+8</code></pre><h2 id="Other-packages"><a class="docs-heading-anchor" href="#Other-packages">Other packages</a><a id="Other-packages-1"></a><a class="docs-heading-anchor-permalink" href="#Other-packages" title="Permalink"></a></h2><p>We have tested using <code>MiniMods</code> with <code>LinearAlgebra</code>, <code>LinearAlgebraX</code>, and <code>SimplePolynomials</code>. It appears to work well in those settings.</p><pre><code class="nohighlight hljs">julia&gt; using LinearAlgebra, LinearAlgebraX
+
+julia&gt; A = rand(MiniMod{11},5,5)
+5×5 Matrix{MiniMod{11}}:
+ MiniMod{11}(4)  MiniMod{11}(2)  MiniMod{11}(0)  MiniMod{11}(6)  MiniMod{11}(1)
+ MiniMod{11}(4)  MiniMod{11}(5)  MiniMod{11}(1)  MiniMod{11}(3)  MiniMod{11}(6)
+ MiniMod{11}(9)  MiniMod{11}(7)  MiniMod{11}(2)  MiniMod{11}(9)  MiniMod{11}(9)
+ MiniMod{11}(1)  MiniMod{11}(9)  MiniMod{11}(7)  MiniMod{11}(0)  MiniMod{11}(5)
+ MiniMod{11}(5)  MiniMod{11}(7)  MiniMod{11}(5)  MiniMod{11}(2)  MiniMod{11}(8)
+
+julia&gt; det(A)
+MiniMod{11}(7)
+
+julia&gt; detx(A)
+MiniMod{11}(7)
+
+julia&gt; rankx(A)
+5
+
+julia&gt; sizeof(A)   # 5x5 matrix of MiniMods using 25 bytes
+25
+
+julia&gt; sizeof(Mod.(A)) # but same matrix of Mods using 8 times as much
+200
+
+julia&gt; using SimplePolynomials
+
+julia&gt; x = getx()
+x
+
+julia&gt; p = one(MiniMod{2}) + x
+MiniMod{2}(1) + MiniMod{2}(1)*x
+
+julia&gt; p^8
+MiniMod{2}(1) + MiniMod{2}(1)*x^8</code></pre><h2 id="MiniMod-numbers-are-smaller-but-not-faster-than-Mod-numbers"><a class="docs-heading-anchor" href="#MiniMod-numbers-are-smaller-but-not-faster-than-Mod-numbers"><code>MiniMod</code> numbers are smaller but not faster than <code>Mod</code> numbers</a><a id="MiniMod-numbers-are-smaller-but-not-faster-than-Mod-numbers-1"></a><a class="docs-heading-anchor-permalink" href="#MiniMod-numbers-are-smaller-but-not-faster-than-Mod-numbers" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia&gt; using MiniMods, Mods, LinearAlgebra, BenchmarkTools
+
+julia&gt; m = 251; d = 500;
+
+julia&gt; A = rand(Mod{m}, d, d);
+
+julia&gt; B = MiniMod.(A);
+
+julia&gt; @btime A*A;
+  601.262 ms (6 allocations: 1.94 MiB)
+
+julia&gt; @btime B*B;
+  682.364 ms (6 allocations: 275.75 KiB)
+
+julia&gt; @btime det(A)
+  150.941 ms (4 allocations: 1.91 MiB)
+Mod{251}(217)
+
+julia&gt; @btime det(B)
+  176.047 ms (4 allocations: 248.31 KiB)
+MiniMod{251}(217)</code></pre><h2 id="Larger-moduli"><a class="docs-heading-anchor" href="#Larger-moduli">Larger moduli</a><a id="Larger-moduli-1"></a><a class="docs-heading-anchor-permalink" href="#Larger-moduli" title="Permalink"></a></h2><p>We envision that users of this module will be primarily using very small  moduli, so the upper bound of 255 won&#39;t (we hope) be a problem. However, users may elect to modify the code to work with larger integers (but smaller than <code>Int</code>). </p><p>In the source file <code>MiniMods.jl</code> find the line</p><pre><code class="language-julia hljs">const SmallInt = UInt8</code></pre><p>and change <code>UInt8</code> to another integer type. For example, use <code>UInt16</code> to expand the range of moduli to 65535.</p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.5.0 on <span class="colophon-date" title="Saturday 24 August 2024 16:46">Saturday 24 August 2024</span>. Using Julia version 1.10.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
